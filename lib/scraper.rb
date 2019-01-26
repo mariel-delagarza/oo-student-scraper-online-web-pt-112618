@@ -26,20 +26,20 @@ class Scraper
 
     links.each do |link|
       if link.include?("linkedin")
-        student[:linkedin] = link
+        profile[:linkedin] = link
       elsif link.include?("github")
-        student[:github] = link
+        profile[:github] = link
       elsif link.include?("blog")
-        student[:blog] = linke
+        profile[:blog] = linke
       else
-        student[:twitter] = link
+        profile[:twitter] = link
       end
     end
 
-    student[:profile_quote] = profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
-    student[:bio] = profile_page.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
+    profile[:profile_quote] = profile_page.css(".profile-quote").text if profile_page.css(".profile-quote")
+    profile[:bio] = profile_page.css("div.bio-content.content-holder div.description-holder p").text if profile_page.css("div.bio-content.content-holder div.description-holder p")
 
-    student
+    profile 
   end
 
 end
